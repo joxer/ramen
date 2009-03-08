@@ -1,10 +1,14 @@
- require 'mongrel'
- require 'erb'
- require 'Classes/Core/Controller.rb'
- require 'Classes/stdlib/socket.rb'
- require 'Classes/Core/File.rb'
- require 'servers/Handler/varius.rb'
- require 'servers/Handler/QueryString.rb'
+
+
+require 'mongrel'
+require 'erb'
+
+require File.dirname(__FILE__) + "/../servers/Handler/varius.rb"
+require File.dirname(__FILE__) + "/../Classes/Core/Controller.rb"
+require File.dirname(__FILE__) + "/../Classes/Core/File.rb"
+require File.dirname(__FILE__) + "/../Classes/stdlib/socket.rb"
+require File.dirname(__FILE__) + "/../servers/Handler/QueryString.rb"
+
  
  h = HttpServer.new("0.0.0.0", "3000")
  
@@ -19,4 +23,5 @@
  h.register('/http/', Http.new)
  #h.register('/test', DirHandler.new("test", true, 'index.html'))
  h.run.join
+
 
