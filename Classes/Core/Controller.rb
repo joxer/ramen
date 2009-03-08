@@ -8,9 +8,9 @@ class Controller < Methods
   def initialize
     
     
-
+    
   end
   
-
+  
   
 end

@@ -1,5 +1,3 @@
-
-
 class Files
   
   def initialize(file)

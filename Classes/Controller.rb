@@ -8,7 +8,7 @@ class Controller < Method
   def initialize
     
     
-
+    
   end
   def snippet
     return "SoS"

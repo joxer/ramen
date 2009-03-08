@@ -1,27 +1,11 @@
 <html>
-  <head>
-    <script src="javascripts/prototype.js" type="text/javascript"></script>
-    <script src="javascripts/scriptaculous.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="site.css">
-  </head>
-
-  <body bgcolor="black" onload="new Effect.Opacity('top', { from: 0, to: 1 }) ;new Effect.Opacity('center', { from: 0, to: 1 });return false;">
-
-    <div id="top" >
-      
-      <ul>
-	<li ><a href="#" onclick="new Ajax.Updater('center', '/method/:home', { method: 'post' });">Home</a></li>
-	<li ><a href="#" onclick="new Ajax.Updater('center', '/method/:snippet', { method: 'post' });">Snippet</a></li>
-	<li ><a href="#">Project</a></li>
-      </ul>
-      <p align="right">Wellcome here</p>
-      
-    </div>
-    <div id="center">
-      <script>
-	new Ajax.Updater('center', '/method/:home', { method: 'post' });
-      </script>
-    </div>
+<body>
+  <form name="roductform" action="/http/index" >
     
-
-  </body>
+    <input type="text" name="jose1" value=""/>
+    <input type="text" name="jose2" value=""/>
+    <input type="submit">
+      
+  </form>
+</body>
+</html>
