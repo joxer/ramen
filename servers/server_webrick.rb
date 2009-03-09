@@ -1,11 +1,18 @@
 require 'webrick'
 require 'rubygems'
 require 'erubis'
-require 'Classes/Erb_handler'
-require 'Classes/Method'
-include WEBrick
-puts `pwd`
+
+#require File.dirname(__FILE__) + "/../servers/Handler/varius.rb"
+require File.dirname(__FILE__) + "/../Classes/Core/Controller.rb"
+require File.dirname(__FILE__) + "/../servers/Handler/varius_webrick.rb"
+require File.dirname(__FILE__) + "/../Classes/Core/File.rb"
+require File.dirname(__FILE__) + "/../Classes/stdlib/socket.rb"
+require File.dirname(__FILE__) + "/../servers/Handler/QueryString.rb"
+
+
+
 class Handler < HTTPServlet::AbstractServlet
+
   def do_POST(req, res)
     p req.path
     m = req.path.split("/method/:")[1]
@@ -15,10 +22,11 @@ class Handler < HTTPServlet::AbstractServlet
 end
 
 
-a = HTTPServer.new(:Port => 3000)
-a.mount("/method", Handler)
-a.mount("/", HTTPServlet::FileHandler, "./public_html/", true)
-a.mount("/test", HTTPServlet::FileHandler, "./test/", true)
-trap("INT"){ a.shutdown }
+server = HTTPServer.new(:Port => 3000)
+server.mount("/method", MethodHandler)
+server.mount("/socket", Socket_Handler)
+server.mount("/", HTTPServlet::FileHandler, File.dirname(__FILE__) + "/../public_html/", true)
+server.mount("/file" , File_Handler)
+trap("INT"){ server.shutdown }
 
-a.start
+server.start

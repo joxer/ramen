@@ -10,13 +10,7 @@ class Socket
   
   def get
     
-  
-  
-
-    
-    
     return Net::HTTP.get URI.parse("#{@host}")
-
     
   end
 
