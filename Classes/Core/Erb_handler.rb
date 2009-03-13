@@ -1,5 +1,7 @@
+require File.dirname(__FILE__) +'/erb/util.rb'
+include ERB::Util
 class Erb_Handler
- 
+  
   def initialize(method)
     
     @method = method

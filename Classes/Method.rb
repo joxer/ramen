@@ -1,12 +1,10 @@
-
-
-
-
 class Methods
-def jose
-  
 
-  return Erb_Handler.new('jose').run
-  
+
+  def jose
+
+
+return Erb_Handler.new('jose').run
+
   end
  end

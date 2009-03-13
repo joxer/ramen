@@ -1,1 +1,2 @@
-<%= "IT WORKS A LOT" %>
+<!-- no comment -->
+     <%= link_to("ciao", "mondo")  %>

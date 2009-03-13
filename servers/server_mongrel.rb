@@ -1,7 +1,7 @@
 
 
 require 'mongrel'
-require 'erb'
+
 
 require File.dirname(__FILE__) + "/../servers/Handler/varius.rb"
 require File.dirname(__FILE__) + "/../Classes/Core/Controller.rb"
