@@ -5,14 +5,12 @@ require File.dirname(__FILE__) + "/../Classes/stdlib/socket.rb"
 require File.dirname(__FILE__) + "/../servers/Handler/QueryString.rb"
 
 module Server_Mongrel
-
-  def Server_Mongrel::run(address = "0.0.0.0")
+  
+  def Server_Mongrel::run(debug = nil, address = "0.0.0.0" )
     h = HttpServer.new(address, "3000")
- 
+    $debug = debug
     #varius url
- 
-
-    
+     
     h.register('/', DirHandler.new("public_html", true, 'index.html'))
     h.register('/method', MethodHandler.new)
     h.register('/method/socket', Socket_Handler.new)

@@ -1,7 +1,7 @@
 class Files
   
   def initialize(file)
-    p file
+   
     @file = file
 
   end

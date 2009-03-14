@@ -1,5 +1,5 @@
 require 'webrick'
-require 'erb'
+
 
 
 require File.dirname(__FILE__) + "/../Classes/Core/Controller.rb"
@@ -8,24 +8,26 @@ require File.dirname(__FILE__) + "/../Classes/Core/File.rb"
 require File.dirname(__FILE__) + "/../Classes/stdlib/socket.rb"
 require File.dirname(__FILE__) + "/../servers/Handler/QueryString.rb"
 
+module Server_Webrick
+  def Server_Webrick::run
+=begin
+    class Handler < HTTPServlet::AbstractServlet
+      
+      def do_POST(req, res)
+        p req.path
+        m = req.path.split("/method/:")[1]
+        res.body = GMethod.new.method(m).call
+        res['Content-Type'] = "text/html"
+      end
+    end
+=end
 
-
-class Handler < HTTPServlet::AbstractServlet
-
-  def do_POST(req, res)
-    p req.path
-    m = req.path.split("/method/:")[1]
-    res.body = GMethod.new.method(m).call
-    res['Content-Type'] = "text/html"
-  end
+   server = HTTPServer.new(:Port => 3000)
+   server.mount("/method", MethodHandler)
+   server.mount("/socket", Socket_Handler)
+   server.mount("/", HTTPServlet::FileHandler, File.dirname(__FILE__) + "/../public_html/", true)
+   server.mount("/file" , File_Handler)
+   trap("INT"){ server.shutdown }
+   server.start
+ end
 end
-
-
-server = HTTPServer.new(:Port => 3000)
-server.mount("/method", MethodHandler)
-server.mount("/socket", Socket_Handler)
-server.mount("/", HTTPServlet::FileHandler, File.dirname(__FILE__) + "/../public_html/", true)
-server.mount("/file" , File_Handler)
-trap("INT"){ server.shutdown }
-
-server.start

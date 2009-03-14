@@ -9,9 +9,9 @@ class Http < Mongrel::HttpHandler
         
         out.write(IO.readlines("public_html/#{page_to_show}.html").join(""))
       end
-    rescue NoMethodError => e
+    rescue NameError => e
       
-      puts "=> Handler HTTP FAILED"
+      puts "=> *** HTTP HANDLER ERROR *** "
     end
     
     
@@ -37,8 +37,8 @@ class MethodHandler < HttpHandler
         out.write(con.send params['method'].to_sym)
       end
     rescue NameError => e
-      
-      puts "=> Method Handler ERROR"
+      puts e if $debug != false
+      puts "=> *** METHOD HANDLER ERROR ***"
       
     end
   end
@@ -59,9 +59,9 @@ class Socket_Handler < HttpHandler
         head["Content-Type"] = "text/html"
         out.write(sock.send params['method'].to_sym)
       end
-    rescue NameError, ArgumentError
-      
-      puts "=> Socket Handler ERROR"
+    rescue NameError,ArgumentError => e
+      puts "#{e}" if $debug != false
+      puts "=> *** SOCKET HANDLER ERROR *** "
       
     end
   end
@@ -86,9 +86,9 @@ class File_Handler < HttpHandler
         
       end
       
-    rescue NameError => e
-      
-      puts "=> File Handler ERROR"
+    rescue NameError, Errno::ENOENT => e
+      puts e if $debug != false
+      puts "=> *** FILE HANDLER ERROR ***"
       
     end
 

@@ -1,3 +1,5 @@
+require 'erb'
+
 begin
   require 'rubygems'
   
