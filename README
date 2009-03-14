@@ -1,16 +1,11 @@
-aRame
+Ramen
 
-Rame stands for Ruby + Ajax + Mongrel + Erubis
+Ramen stands for Ruby + Ajax + Mongrel + Erubis
 
-It's a little server that handle the http request and return the 
-result of a erb page trough the erubis handler
+Ramen is a little framework. It aims to help people to develop fast web site.
+It's based on the MVC pattern and it's agnostic.
 
-The handler is in Classes and trough him you can use your application. The GMethod.class containes the link to Handler that link to file. the file are stored in /m/. Inside them there are the value of the query to the server.
-
-TODO:
-
-Create a good rakefile and some script to automatize all
-
+Enjoy it or get away :p
 
 This program and entire repository is free software; you can
 redistribute it and/or modify it under the terms of the GNU
