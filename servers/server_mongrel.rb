@@ -1,9 +1,4 @@
-
-
-
-
-
-require File.dirname(__FILE__) + "/../servers/Handler/varius.rb"
+require File.dirname(__FILE__) + "/../servers/Handler/varius_mongrel.rb"
 require File.dirname(__FILE__) + "/../Classes/Core/Controller.rb"
 require File.dirname(__FILE__) + "/../Classes/Core/File.rb"
 require File.dirname(__FILE__) + "/../Classes/stdlib/socket.rb"
@@ -11,7 +6,7 @@ require File.dirname(__FILE__) + "/../servers/Handler/QueryString.rb"
 
 module Server_Mongrel
 
-  def run(address = "0.0.0.0")
+  def Server_Mongrel::run(address = "0.0.0.0")
     h = HttpServer.new(address, "3000")
  
     #varius url

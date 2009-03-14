@@ -26,7 +26,7 @@ end
 
 begin
   require 'mongrel'
+  $mongrel = true
 rescue LoadError
-  
-  @mongrel = false
+  $mongrel = false
 end

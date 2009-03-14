@@ -1,2 +1,4 @@
 <!-- no comment -->
-     <%= link_to("ciao", "mondo")  %>
+<%= link_to("ciao", "mondo")  %>
+<%= submit %>
+<%= text %>

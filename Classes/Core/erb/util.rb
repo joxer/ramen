@@ -37,11 +37,9 @@ class ERB
       return "<link rel='stylesheet' type='ext/css' href='public_html/css/#{file}'>"
 
     end
-
-
-    end
     
+
   end
-
-
+    
+  
 end
