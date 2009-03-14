@@ -11,7 +11,7 @@ class Erb_Handler
   
   def run
     
-    @testo = ""
+
     @uh = ERB.new(@file)
     @uh.result
   end
